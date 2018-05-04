@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://maven.apache.org/XDOC/2.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://maven.apache.org/XDOC/2.0"
           xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
   <properties>
@@ -21,14 +21,17 @@
         <li>Booking of a new cargo</li>
         <li>Routing of the new cargo</li>
         <li>Registering of a few expected events for the new cargo,
-           then tracking to confirm it's on track</li>
+          then tracking to confirm it's on track
+        </li>
         <li>Registering of an unexpected event for the new cargo,
-           then tracking to see that it becomes misdirected</li>
+          then tracking to see that it becomes misdirected
+        </li>
         <li>Registering event using the scheduled file import interface</li>
       </ul>
       <p>
         It's a little difficult to read the text, but you can use it as a guide for
-        playing around on your own with the actual application.</p>
+        playing around on your own with the actual application.
+      </p>
       <object width="425" height="344">
         <param name="movie" value="http://www.youtube.com/v/eA8xgdtqqs8&amp;hl=en&amp;fs=1"></param>
         <param name="allowFullScreen" value="true"></param>
@@ -37,7 +40,8 @@
                allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed>
       </object>
       <p>
-        <em>The recording was made using <a href="http://www.shinywhitebox.com/ishowuhd/main.html">IShowU HD</a>.</em>
+        <em>The recording was made using <a href="http://www.shinywhitebox.com/ishowuhd/main.html">IShowU HD</a>.
+        </em>
       </p>
     </section>
   </body>

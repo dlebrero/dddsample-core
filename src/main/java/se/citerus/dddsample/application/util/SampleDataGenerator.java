@@ -199,17 +199,6 @@ public class SampleDataGenerator {
         executeUpdate(jdbcTemplate, legSql, legArgs);
     }
 
-    public void generate() {
-        TransactionTemplate tt = new TransactionTemplate(transactionManager);
-        //loadSampleData(new JdbcTemplate(dataSource), tt);
-
-        HandlingEventFactory handlingEventFactory = new HandlingEventFactory(
-                cargoRepository,
-                voyageRepository,
-                locationRepository);
-        loadHibernateData(tt, sf, handlingEventFactory, handlingEventRepository);
-    }
-
     public static void loadHibernateData(TransactionTemplate tt, final SessionFactory sf, final HandlingEventFactory handlingEventFactory, final HandlingEventRepository handlingEventRepository) {
         System.out.println("*** Loading Hibernate data ***");
         tt.execute(new TransactionCallbackWithoutResult() {
@@ -336,5 +325,16 @@ public class SampleDataGenerator {
 
     public static Date offset(int hours) {
         return new Date(ts(hours).getTime());
+    }
+
+    public void generate() {
+        TransactionTemplate tt = new TransactionTemplate(transactionManager);
+        //loadSampleData(new JdbcTemplate(dataSource), tt);
+
+        HandlingEventFactory handlingEventFactory = new HandlingEventFactory(
+                cargoRepository,
+                voyageRepository,
+                locationRepository);
+        loadHibernateData(tt, sf, handlingEventFactory, handlingEventRepository);
     }
 }

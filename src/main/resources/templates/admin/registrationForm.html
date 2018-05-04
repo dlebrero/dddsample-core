@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>Cargo Administration</title>
@@ -40,7 +40,8 @@
             <tr>
                 <td>Arrival deadline:</td>
                 <td>
-                    <input name="arrivalDeadline" type="text" size="10" id="arrivalDeadline" th:value="${#dates.format(#dates.createNow(),'dd/MM/yyyy')}"/>
+                    <input name="arrivalDeadline" type="text" size="10" id="arrivalDeadline"
+                           th:value="${#dates.format(#dates.createNow(),'dd/MM/yyyy')}"/>
                     <p class="glyphicon glyphicon-calendar"></p>
                 </td>
             </tr>
@@ -64,6 +65,7 @@
             format: "dd/mm/yyyy"
         });
     });
+
 </script>
 </body>
 </html>

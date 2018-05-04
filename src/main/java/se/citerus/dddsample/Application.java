@@ -20,12 +20,12 @@ public class Application {
     @Autowired
     SampleDataGenerator sampleDataGenerator;
 
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Application.class, args);
+    }
+
     @PostConstruct
     public void init() {
         sampleDataGenerator.generate();
-    }
-
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(Application.class, args);
     }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>Cargo Administration</title>
@@ -62,7 +62,8 @@
     </th:block>
     <th:block th:if="${!cargo.routed}">
         <p>
-            <strong>Not routed</strong> - <a th:href="@{/admin/selectItinerary(trackingId=${cargo.trackingId})}">Route this cargo</a>
+            <strong>Not routed</strong> - <a th:href="@{/admin/selectItinerary(trackingId=${cargo.trackingId})}">Route
+            this cargo</a>
         </p>
     </th:block>
 </div>

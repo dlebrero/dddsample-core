@@ -12,9 +12,10 @@ import static java.util.Collections.sort;
  */
 public class HandlingHistory implements ValueObject<HandlingHistory> {
 
-    private final List<HandlingEvent> handlingEvents;
-
     public static final HandlingHistory EMPTY = new HandlingHistory(Collections.<HandlingEvent>emptyList());
+    private static final Comparator<HandlingEvent> BY_COMPLETION_TIME_COMPARATOR =
+            (he1, he2) -> he1.completionTime().compareTo(he2.completionTime());
+    private final List<HandlingEvent> handlingEvents;
 
     public HandlingHistory(Collection<HandlingEvent> handlingEvents) {
         Validate.notNull(handlingEvents, "Handling events are required");
@@ -63,8 +64,5 @@ public class HandlingHistory implements ValueObject<HandlingHistory> {
     public int hashCode() {
         return handlingEvents.hashCode();
     }
-
-    private static final Comparator<HandlingEvent> BY_COMPLETION_TIME_COMPARATOR =
-            (he1, he2) -> he1.completionTime().compareTo(he2.completionTime());
 
 }

@@ -8,9 +8,9 @@ import se.citerus.dddsample.domain.model.handling.HandlingEventRepository;
 import se.citerus.dddsample.domain.model.handling.HandlingHistory;
 import se.citerus.dddsample.domain.model.location.Location;
 
-import static se.citerus.dddsample.domain.model.location.SampleLocations.*;
-
 import java.util.*;
+
+import static se.citerus.dddsample.domain.model.location.SampleLocations.*;
 
 /**
  * CargoRepositoryInMem implement the CargoRepository interface but is a test
@@ -30,6 +30,18 @@ public class CargoRepositoryInMem implements CargoRepository {
      */
     public CargoRepositoryInMem() {
         cargoDb = new HashMap<>();
+    }
+
+    public static Cargo createCargoWithDeliveryHistory(TrackingId trackingId,
+                                                       Location origin,
+                                                       Location destination,
+                                                       HandlingHistory handlingHistory) {
+
+        final RouteSpecification routeSpecification = new RouteSpecification(origin, destination, new Date());
+        final Cargo cargo = new Cargo(trackingId, routeSpecification);
+        cargo.deriveDeliveryProgress(handlingHistory);
+
+        return cargo;
     }
 
     public Cargo find(final TrackingId trackingId) {
@@ -75,17 +87,5 @@ public class CargoRepositoryInMem implements CargoRepository {
 
     public void setHandlingEventRepository(final HandlingEventRepository handlingEventRepository) {
         this.handlingEventRepository = handlingEventRepository;
-    }
-
-    public static Cargo createCargoWithDeliveryHistory(TrackingId trackingId,
-                                                       Location origin,
-                                                       Location destination,
-                                                       HandlingHistory handlingHistory) {
-
-        final RouteSpecification routeSpecification = new RouteSpecification(origin, destination, new Date());
-        final Cargo cargo = new Cargo(trackingId, routeSpecification);
-        cargo.deriveDeliveryProgress(handlingHistory);
-
-        return cargo;
     }
 }

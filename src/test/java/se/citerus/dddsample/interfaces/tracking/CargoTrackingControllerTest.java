@@ -1,10 +1,5 @@
 package se.citerus.dddsample.interfaces.tracking;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-
-import java.util.Map;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,19 +12,19 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-
 import se.citerus.dddsample.infrastructure.persistence.inmemory.CargoRepositoryInMem;
 import se.citerus.dddsample.infrastructure.persistence.inmemory.HandlingEventRepositoryInMem;
+
+import java.util.Map;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(classes = CargoTrackingControllerTest.TestConfiguration.class)
 public class CargoTrackingControllerTest {
-    public static class TestConfiguration {
-
-    }
-
     private MockMvc mockMvc;
 
     @Before
@@ -65,6 +60,10 @@ public class CargoTrackingControllerTest {
         assertThat(fe.getCode()).isEqualTo("cargo.unknown_id");
         assertThat(fe.getArguments().length).isEqualTo(1);
         assertThat(fe.getArguments()[0]).isEqualTo(trackingId);
+    }
+
+    public static class TestConfiguration {
+
     }
 
 }
